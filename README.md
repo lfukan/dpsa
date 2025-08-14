@@ -2,14 +2,25 @@
 
 `dpsa` is a Bash helper that turns `docker ps -a` into a clean ASCII table with:
 
+```
++--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
+| CONTAINER ID | NAMES         | IMAGE                             | STATUS      | HEALTH    | PORTS                    |
++--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
+| 9747fdb71eef | task-runner   | ghcr.io/lfukan/container:devel    | Up 2 hours  | unhealthy | 3000/tcp                 |
++--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
+| 43f1c36ae98b | mailhog       | mailhog/mailhog                   | Up 7 months |           | 0.0.0.0:25->1025/tcp     |
+|              |               |                                   |             |           | [::]:25->1025/tcp        |
+|              |               |                                   |             |           | 127.0.0.1:2525->8025/tcp |
++--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
+```
+
 - **Dynamic column widths**
 - **HEALTH** separated from **STATUS** into separate column for better
 - **Multi-line PORTS**
 - **IMAGE** split tag to a second line if the tag is longer than 10 characters
 - Optional live mode via `watch`: `dpsa N`
-- Clear dependency checks before running
 
-Tested on RHEL, Rocky Linux, Oracle Linux, and similar distributions.
+Tested on RHEL & Rocky Linux distibutions.
 
 ---
 ## ⚙ Dependencies
@@ -41,22 +52,6 @@ source /etc/profile.d/dpsa.sh
 ```bash
 dpsa           # basic view
 dpsa N         # live view, refresh every N seconds
-```
-
----
-
-## 📋 Example Output
-
-```
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
-| CONTAINER ID | NAMES         | IMAGE                             | STATUS      | HEALTH    | PORTS                    |
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
-| 9747fdb71eef | task-runner   | ghcr.io/lfukan/container:devel    | Up 2 hours  | unhealthy | 3000/tcp                 |
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
-| 43f1c36ae98b | mailhog       | mailhog/mailhog                   | Up 7 months |           | 0.0.0.0:25->1025/tcp     |
-|              |               |                                   |             |           | [::]:25->1025/tcp        |
-|              |               |                                   |             |           | 127.0.0.1:2525->8025/tcp |
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
 ```
 
 ---
