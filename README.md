@@ -1,24 +1,23 @@
 # dpsa — Docker PS Advanced
 
-`dpsa` is a Bash helper that turns `docker ps -a` into a clean ASCII table with:
+`dpsa` is a Bash helper that turns `docker ps -a` into user readable table:
 
 ```
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
-| CONTAINER ID | NAMES         | IMAGE                             | STATUS      | HEALTH    | PORTS                    |
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
-| 9747fdb71eef | task-runner   | ghcr.io/lfukan/container:devel    | Up 2 hours  | unhealthy | 3000/tcp                 |
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
-| 43f1c36ae98b | mailhog       | mailhog/mailhog                   | Up 7 months |           | 0.0.0.0:25->1025/tcp     |
-|              |               |                                   |             |           | [::]:25->1025/tcp        |
-|              |               |                                   |             |           | 127.0.0.1:2525->8025/tcp |
-+--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
++--------------+----------------+-----------------------------------+-------------+-----------+--------------------------+
+| CONTAINER ID | CONTAINER NAME | IMAGE:TAG                         | STATUS      | HEALTH    | PORTS                    |
++--------------+----------------+-----------------------------------+-------------+-----------+--------------------------+
+| 9747fdb71eef | task-runner    | ghcr.io/lfukan/container:devel    | Up 2 hours  | healthy   | 3000/tcp                 |
++--------------+----------------+-----------------------------------+-------------+-----------+--------------------------+
+| 43f1c36ae98b | mailhog        | mailhog/mailhog                   | Up 7 months |           | 0.0.0.0:25->1025/tcp     |
+|              |                |                                   |             |           | [::]:25->1025/tcp        |
++--------------+----------------+-----------------------------------+-------------+-----------+--------------------------+
 ```
 
-- **Dynamic column widths**
-- **HEALTH** separated from **STATUS** into separate column for better
-- **Multi-line PORTS**
-- **IMAGE** split tag to a second line if the tag is longer than 10 characters
-- Optional live mode via `watch`: `dpsa N`
+- Table has dynamic column widths
+- Health status is separated from STATUS into separate column
+- PORTS are multi-line - so much more readable then using original command
+- IMAGE has split tag to a second line if the tag is longer than 10 characters
+- There is also optional live mode made via watch
 
 Tested on RHEL & Rocky Linux distibutions.
 
