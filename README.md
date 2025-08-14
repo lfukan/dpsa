@@ -12,6 +12,17 @@
 Tested on RHEL, Rocky Linux, Oracle Linux, and similar distributions.
 
 ---
+## ⚙ Dependencies
+
+`dpsa` requires the following commands to be available:
+
+- `docker`
+- `awk` (gawk or mawk)
+- `watch` *(only for live mode)*
+
+If any dependency is missing, `dpsa` will print an error message and exit.
+
+---
 
 ## 📦 Install (system-wide, one-liner)
 
@@ -27,7 +38,6 @@ sudo curl -fsSL https://raw.githubusercontent.com/<your-username>/dpsa/main/dpsa
 dpsa           # one-shot view
 dpsa 1         # live view, refresh every 1s (requires 'watch')
 dpsa 5         # live view, refresh every 5s
-dpsa --help    # show usage help
 ```
 
 ---
@@ -45,18 +55,6 @@ dpsa --help    # show usage help
 |              |               |                                   |             |           | 127.0.0.1:2525->8025/tcp |
 +--------------+---------------+-----------------------------------+-------------+-----------+--------------------------+
 ```
-
----
-
-## ⚙ Dependencies
-
-`dpsa` requires the following commands to be available:
-
-- `docker`
-- `awk` (gawk or mawk)
-- `watch` *(only for live mode)*
-
-If any dependency is missing, `dpsa` will print an error message and exit.
 
 ---
 
