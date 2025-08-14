@@ -66,6 +66,7 @@ BEGIN{
     gsub(/[[:space:]]+$/, "", s1); gsub(/^[[:space:]]+/, "", s2);
     s=(length(s1)&&length(s2))?s1" "s2:s1 s2;
   }
+  if (h == "") h = "N/A";
   stat[row]=s; health[row]=h;
 
   n=split($5,p,/, /); pc[row]=n;
